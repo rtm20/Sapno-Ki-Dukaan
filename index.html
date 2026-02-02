@@ -127,6 +127,37 @@
             position: relative;
         }
 
+        /* Custom Scrollbar for screens */
+        .screen {
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        .screen::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .screen::-webkit-scrollbar-track {
+            background: rgba(0,0,0,0.05);
+            border-radius: 10px;
+            margin: 50px 0 20px 0;
+        }
+
+        .screen::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, var(--primary), var(--primary-dark));
+            border-radius: 10px;
+        }
+
+        .screen::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, var(--primary-dark), #C0392B);
+        }
+
+        /* Firefox scrollbar */
+        .screen {
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary) rgba(0,0,0,0.05);
+        }
+
         .notch {
             position: absolute;
             top: 0;
@@ -202,12 +233,15 @@
         /* Splash Screen */
         .splash-screen {
             background: linear-gradient(135deg, #FF6B35 0%, #F7931E 50%, #FFD93D 100%);
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
             text-align: center;
             color: white;
             position: relative;
-            overflow: hidden;
+            overflow-y: auto;
+            overflow-x: hidden;
+            padding-top: 60px;
+            padding-bottom: 30px;
         }
 
         .splash-screen::before {
